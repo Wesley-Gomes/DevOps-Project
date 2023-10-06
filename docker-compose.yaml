@@ -1,0 +1,47 @@
+version: "1.0"
+
+services:
+  api_devops_project:
+    image: "wesleygomes36/devops-project:1.0"
+    restart: always
+    environment:
+      - spring.datasource.username=${DB_OWNER_USER}
+      - spring.datasource.password=${DB_OWNER_PASS}
+      - spring.flyway.user=${DB_OWNER_USER}
+      - spring.flyway.password=${DB_OWNER_PASS}
+      - spring.datasource.url=jdbc:oracle:thin:@oracledb:1521/XEPDB1
+      - spring.flyway.url=jdbc:oracle:thin:@oracledb:1521/XEPDB1
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    networks:
+      - devops-project
+    volumes:
+      - .m2:/root/.m2
+    depends_on:
+      oracledb:
+        condition: service_healthy
+
+  oracledb:
+    image: "gvenzl/oracle-xe:18"
+    restart: always
+    environment:
+      ORACLE_PASSWORD: root
+      APP_USER: ${APP_USER}
+      APP_USER_PASSWORD: ${APP_USER_PASSWORD}
+    ports:
+      - "1521:1521"
+    expose:
+      - "1521"
+    networks:
+      - devops-project
+    healthcheck:
+      test: [ "CMD-SHELL", "lsnrctl status XE | grep 'The command completed successfully'" ]
+      start_period: 30s
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+networks:
+  devops-project:
