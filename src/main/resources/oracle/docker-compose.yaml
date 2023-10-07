@@ -1,0 +1,14 @@
+version: "1.0"
+
+services:
+  oracledb:
+    image: "gvenzl/oracle-xe:18"
+    restart: always
+    environment:
+      ORACLE_PASSWORD: root
+      APP_USER: app
+      APP_USER_PASSWORD: app
+    ports:
+      - "1521:1521"
+    expose:
+      - "1521"
