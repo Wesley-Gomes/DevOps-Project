@@ -29,9 +29,8 @@ jobs:
     - name: Create-DB
       run: |
          cd src/main/resources/oracle 
-         docker-compose up -d
-    
-    - name: Maven Test
+         docker-compose up -d    
+
     - run: mvn test  
     
     - name: Generate JaCoCo Badge

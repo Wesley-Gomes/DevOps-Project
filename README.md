@@ -2,6 +2,7 @@
 
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Wesley-Gomes/DevOps-Project/devops-dev)
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Wesley-Gomes_DevOps-Project)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project)
 
 Este repositório é dedicado ao estudo e prática de práticas de CI/CD (Integração Contínua e Implantação Contínua).
 
