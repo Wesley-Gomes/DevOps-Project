@@ -2,7 +2,7 @@ version: "1.0"
 
 services:
   oracledb:
-    image: "gvenzl/oracle-xe:18"
+    image: "gvenzl/oracle-xe:18-faststart"
     restart: always
     environment:
       ORACLE_PASSWORD: root
