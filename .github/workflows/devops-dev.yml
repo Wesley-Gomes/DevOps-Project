@@ -14,6 +14,7 @@ on:
 
 jobs:
   test:
+    name: Maven Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +22,8 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-      
+        distribution: 'temurin'
+        cache: maven
     - name: Build-DB
       run: |
            cd src/main/resources/oracle
@@ -36,7 +38,7 @@ jobs:
       run: mvn test -f pom.xml
 
   sonarcloud:
-    name: Test - SonarCloud Scan
+    name: SonarCloud Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -44,6 +46,18 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build-DB
+        run: |
+             cd src/main/resources/oracle
+             docker-compose build
+        
+      - name: Create-DB
+        run: |
+           cd src/main/resources/oracle 
+           docker-compose up -d
+           
       - name: SonarCloud Scan
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
