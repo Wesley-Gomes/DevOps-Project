@@ -24,7 +24,7 @@ services:
         condition: service_healthy
 
   oracledb:
-    image: "gvenzl/oracle-xe:18"
+    image: "gvenzl/oracle-xe:18-faststart"
     restart: always
     environment:
       ORACLE_PASSWORD: root
