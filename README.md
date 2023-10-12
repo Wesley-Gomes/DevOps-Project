@@ -2,7 +2,9 @@
 
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Wesley-Gomes/DevOps-Project/devops-dev)
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Wesley-Gomes_DevOps-Project)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Wesley-Gomes_DevOps-Project&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project)
 
 Este repositório é dedicado ao estudo e prática de práticas de CI/CD (Integração Contínua e Implantação Contínua).
 
