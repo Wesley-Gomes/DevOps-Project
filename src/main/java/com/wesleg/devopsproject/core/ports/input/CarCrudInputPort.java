@@ -1,17 +1,18 @@
 package com.wesleg.devopsproject.core.ports.input;
 
-import com.wesleg.devopsproject.core.model.Car;
+import com.wesleg.devopsproject.core.domain.Car;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface CarCrudInputPort {
     Car save(Car car);
 
     List<Car> getList();
 
-    Car get(Long carId);
+    Car get(UUID carId);
 
     Car update(Car car);
 
-    void delete(Long carId);
+    void delete(UUID carId);
 }

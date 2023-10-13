@@ -109,7 +109,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
 
     - name: Generate Coverage
-      run: mvn sonar:sonar -Pcoverage
+      run: mvn verify -Pcoverage
 
     - name: Build and analyze
       env:

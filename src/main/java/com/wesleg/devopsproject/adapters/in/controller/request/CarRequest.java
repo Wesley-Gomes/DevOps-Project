@@ -4,11 +4,10 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class CarRequest {
     private String name;
     private String color;
-    private int year;
+    private Integer year;
+    private String model;
 }
