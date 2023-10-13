@@ -16,12 +16,19 @@
     <properties>
         <java.version>17</java.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+
+        <!-- Sonar -->
+        <code.coverage.inclusions>
+            src/main/java/**,src/main/resources/**
+        </code.coverage.inclusions>
         <code.coverage.exclusions>
             **com/wesleg/devopsproject/core/DevOpsProjectApplication.java**
         </code.coverage.exclusions>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.language>java</sonar.language>
         <sonar.organization>wesley-gomes</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.coverage.jacoco.xmlReportPaths>../target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
     <dependencies>
         <dependency>
@@ -122,7 +129,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -143,7 +150,7 @@
             <id>coverage</id>
             <properties>
                 <sonar.sources>.</sonar.sources>
-                <sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
+                <sonar.inclusions>${code.coverage.inclusions}</sonar.inclusions>
                 <sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
             </properties>
             <build>
@@ -154,21 +161,16 @@
                         <version>0.8.10</version>
                         <executions>
                             <execution>
-                                <id>prepare-agent</id>
                                 <goals>
                                     <goal>prepare-agent</goal>
                                 </goals>
                             </execution>
                             <execution>
                                 <id>report</id>
+                                <phase>prepare-package</phase>
                                 <goals>
                                     <goal>report</goal>
                                 </goals>
-                                <configuration>
-                                    <formats>
-                                        <format>XML</format>
-                                    </formats>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
