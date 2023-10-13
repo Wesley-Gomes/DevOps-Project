@@ -1,7 +1,8 @@
 package com.wesleg.devopsproject.core.usecase.integration;
 
-import com.wesleg.devopsproject.core.model.Car;
+import com.wesleg.devopsproject.core.domain.Car;
 import com.wesleg.devopsproject.core.usecase.CarCrudUseCase;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -86,10 +88,11 @@ class CarCrudUseCaseIntegrationTest {
     void deleteCar() {
         Car newCar = generateCar();
         Car createdCar = crudCarUseCase.save(newCar);
+        UUID carId = createdCar.getId();
 
-        crudCarUseCase.delete(createdCar.getId());
+        crudCarUseCase.delete(carId);
 
-        assertThrows(RuntimeException.class, () -> crudCarUseCase.get(createdCar.getId()));
+        assertThrows(RuntimeException.class, () -> crudCarUseCase.get(carId));
     }
 
     private Car generateCar() {

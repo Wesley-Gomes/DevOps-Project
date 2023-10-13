@@ -108,38 +108,14 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
 
-    - name: Generate JaCoCo Badge
-      id: jacoco
-      uses: cicirello/jacoco-badge-generator@v2.0.1
-
-    - name: Log coverage percentage
-      run: |
-        coverage=$(echo "${{ steps.jacoco.outputs.coverage }} * 100" | bc)
-        branch_coverage=$(echo "${{ steps.jacoco.outputs.branches }} * 100" | bc)
-        printf "coverage = %.2f%%\n" $coverage
-        printf "branch coverage = %.2f%%\n" $branch_coverage
-
-    - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v3
-      with:
-        name: jacoco-report
-        path: target/site/jacoco/
+    - name: Generate Coverage
+      run: mvn verify -Pcoverage
 
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Wesley-Gomes_DevOps-Project
-
-    - name: Check Quality Gate
-      env: 
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        QUALITY_GATE_STATUS= $(curl -s "https://sonarcloud.io/api/qualitygates/project_status?projectKey=Wesley-Gomes_DevOps-Project" -H "Authorization: Basic $SONAR_TOKEN" | jq -r '.projectStatus.status')
-         if [ "$QUALITY_GATE_STATUS" = "OK" ]; then
-           echo "QG OK"
-         fi
-         echo curl -s "https://sonarcloud.io/api/qualitygates/project_status?projectKey=Wesley-Gomes_DevOps-Project" > result.json
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Wesley-Gomes_DevOps-Project    
           
   build:
     needs: [unit-test, integration-test, code-analisys]

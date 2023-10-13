@@ -1,7 +1,7 @@
 package com.wesleg.devopsproject.adapters.out.repository.mappers;
 
 import com.wesleg.devopsproject.adapters.out.repository.entity.CarEntity;
-import com.wesleg.devopsproject.core.model.Car;
+import com.wesleg.devopsproject.core.domain.Car;
 import org.mapstruct.Mapper;
 
 import java.util.List;

@@ -1,12 +1,13 @@
 package com.wesleg.devopsproject.core.usecase;
 
-import com.wesleg.devopsproject.core.model.Car;
+import com.wesleg.devopsproject.core.domain.Car;
 import com.wesleg.devopsproject.core.ports.input.CarCrudInputPort;
 import com.wesleg.devopsproject.core.ports.output.CarCrudOutputPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class CarCrudUseCase implements CarCrudInputPort {
     }
 
     @Override
-    public Car get(Long carId) {
+    public Car get(UUID carId) {
         return carCrudOutputPort.get(carId).orElseThrow(() -> new RuntimeException("Car not found"));
     }
 
@@ -34,7 +35,7 @@ public class CarCrudUseCase implements CarCrudInputPort {
     }
 
     @Override
-    public void delete(Long carId) {
+    public void delete(UUID carId) {
         carCrudOutputPort.delete(carId);
     }
 }

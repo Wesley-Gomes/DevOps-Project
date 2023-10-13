@@ -1,7 +1,7 @@
 package com.wesleg.devopsproject.core.usecase.unit;
 
 
-import com.wesleg.devopsproject.core.model.Car;
+import com.wesleg.devopsproject.core.domain.Car;
 import com.wesleg.devopsproject.core.ports.output.CarCrudOutputPort;
 import com.wesleg.devopsproject.core.usecase.CarCrudUseCase;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +11,7 @@ import org.mockito.Mock;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -95,8 +95,7 @@ class CarCrudUseCaseUnitTest {
 
     private Car generateCar() {
         Car car = new Car();
-        Random random = new Random();
-        car.setId(random.nextLong());
+        car.setId(UUID.randomUUID());
         car.setName("New Car");
         car.setColor("Red");
         car.setYear(2023);
