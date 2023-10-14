@@ -69,6 +69,16 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Build-DB
+      run: |
+        cd src/main/resources/oracle
+        docker-compose build
+
+    - name: Create-DB
+      run: |
+        cd src/main/resources/oracle 
+        docker-compose up -d
+
     - run: mvn test
     - name: Generate JaCoCo Badge
       id: jacoco
