@@ -1,8 +1,8 @@
 package com.wesleg.devopsproject.core.usecase.integration;
 
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
+import com.wesleg.devopsproject.core.domain.exception.NotFoundException;
 import com.wesleg.devopsproject.core.usecase.CarCrudUseCase;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +92,7 @@ class CarCrudUseCaseIntegrationTest {
 
         crudCarUseCase.delete(carId);
 
-        assertThrows(RuntimeException.class, () -> crudCarUseCase.get(carId));
+        assertThrows(NotFoundException.class, () -> crudCarUseCase.get(carId));
     }
 
     private Car generateCar() {

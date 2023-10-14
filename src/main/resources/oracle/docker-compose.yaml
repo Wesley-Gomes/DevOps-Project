@@ -1,13 +1,13 @@
-version: "3.3"
+version: "3.8"
 
 services:
   oracledb:
     image: "gvenzl/oracle-xe:18-faststart"
     restart: always
     environment:
-      ORACLE_PASSWORD: root
-      APP_USER: app
-      APP_USER_PASSWORD: app
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
+      APP_USER: ${APP_USER}
+      APP_USER_PASSWORD: ${APP_USER_PASSWORD}
     ports:
       - "1521:1521"
     expose:

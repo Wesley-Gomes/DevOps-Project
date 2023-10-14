@@ -1,4 +1,4 @@
-package com.wesleg.devopsproject.core.domain;
+package com.wesleg.devopsproject.core.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,0 +1,15 @@
+package com.wesleg.devopsproject.adapters.in.controller.request;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class PersonRequest {   
+   private String name;
+   private String email;
+   private String phone;
+   private String username;
+}
