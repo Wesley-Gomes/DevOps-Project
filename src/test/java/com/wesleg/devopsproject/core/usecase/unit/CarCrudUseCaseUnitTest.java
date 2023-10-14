@@ -1,7 +1,7 @@
 package com.wesleg.devopsproject.core.usecase.unit;
 
 
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
 import com.wesleg.devopsproject.core.ports.output.CarCrudOutputPort;
 import com.wesleg.devopsproject.core.usecase.CarCrudUseCase;
 import org.junit.jupiter.api.BeforeAll;
@@ -62,9 +62,9 @@ class CarCrudUseCaseUnitTest {
 
         when(carCrudOutputPort.get(car.getId())).thenReturn(Optional.of(car));
 
-        Car carEntityResponse = crudCarUseCase.get(car.getId());
+        Car carResponse = crudCarUseCase.get(car.getId());
 
-        assertEquals(car, carEntityResponse);
+        assertEquals(car, carResponse);
         verify(carCrudOutputPort, times(1)).get(car.getId());
     }
 
@@ -73,12 +73,21 @@ class CarCrudUseCaseUnitTest {
     void updateCar() {
         Car car = generateCar();
 
-        when(carCrudOutputPort.update(car)).thenReturn(car);
+        Car carToUpdate = new Car();
+        carToUpdate.setId(car.getId());
+        carToUpdate.setName("Updated Car");
+        carToUpdate.setColor("Blue");
+        carToUpdate.setYear(2024);
 
-        Car updatedCar = crudCarUseCase.update(car);
 
-        assertEquals(car, updatedCar);
+        when(carCrudOutputPort.get(car.getId())).thenReturn(Optional.of(car));
+        when(carCrudOutputPort.update(carToUpdate)).thenReturn(carToUpdate);
+
+        Car updatedCar = crudCarUseCase.update(carToUpdate);
+
+        assertEquals(carToUpdate, updatedCar);
         verify(carCrudOutputPort, times(1)).update(car);
+        verify(carCrudOutputPort, times(1)).get(car.getId());
     }
 
     @Test

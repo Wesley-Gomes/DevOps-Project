@@ -2,7 +2,7 @@ package com.wesleg.devopsproject.adapters.in.controller.mappers;
 
 import com.wesleg.devopsproject.adapters.in.controller.reponse.CarResponse;
 import com.wesleg.devopsproject.adapters.in.controller.request.CarRequest;
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

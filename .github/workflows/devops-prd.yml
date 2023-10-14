@@ -6,11 +6,11 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: devops-dev
+name: devops-prd
 
 on:
   pull_request:
-    branches: [ "dev" ]
+    branches: [ "main"]
 
 jobs:
   unit-test:
@@ -55,32 +55,8 @@ jobs:
 
       - run: mvn verify -Pintegration-tests
 
-  code-coverage:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - run: mvn test
-    - name: Generate JaCoCo Badge
-      id: jacoco
-      uses: cicirello/jacoco-badge-generator@v2.0.1
-    - name: Log coverage percentage
-      run: |
-        coverage=$(printf "%.1f%%" ${{ steps.jacoco.outputs.coverage }})
-        branch_coverage=$(printf "%.1f%%" ${{ steps.jacoco.outputs.branches }})
-        echo "coverage = $coverage"
-        echo "branch coverage = $branch_coverage"
-    - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v2
-      with:
-        name: jacoco-report
-        path: target/site/jacoco/
-
   build:
-    needs: [ unit-test, integration-test, code-coverage ]
+    needs: [ unit-test, integration-test, code-analisys ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

@@ -1,6 +1,6 @@
 package com.wesleg.devopsproject.core.ports.output;
 
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
 
 import java.util.List;
 import java.util.Optional;
