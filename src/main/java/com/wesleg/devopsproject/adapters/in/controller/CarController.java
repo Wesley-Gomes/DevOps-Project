@@ -3,7 +3,7 @@ package com.wesleg.devopsproject.adapters.in.controller;
 import com.wesleg.devopsproject.adapters.in.controller.mappers.CarMapper;
 import com.wesleg.devopsproject.adapters.in.controller.reponse.CarResponse;
 import com.wesleg.devopsproject.adapters.in.controller.request.CarRequest;
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
 import com.wesleg.devopsproject.core.ports.input.CarCrudInputPort;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class CarController {
 
     @PostMapping
     public ResponseEntity<CarResponse> createCar(@RequestBody CarRequest carRequest) {
-        Car car = carRequesttoCar(carRequest);
+        Car car = carRequestToCar(carRequest);
         Car createdCar = carCrudInputPort.save(car);
         return ResponseEntity.ok().body(carToCarResponse(createdCar));
     }
@@ -40,7 +40,7 @@ public class CarController {
 
     @PutMapping("/{carId}")
     public ResponseEntity<CarResponse> updateCar(@PathVariable UUID carId, @RequestBody CarRequest carRequest) {
-        Car car = carRequesttoCar(carRequest);
+        Car car = carRequestToCar(carRequest);
         car.setId(carId);
         Car updatedCar = carCrudInputPort.update(car);
         return ResponseEntity.ok().body(carToCarResponse(updatedCar));
@@ -52,7 +52,7 @@ public class CarController {
         return ResponseEntity.noContent().build();
     }
 
-    private Car carRequesttoCar(CarRequest carRequest) {
+    private Car carRequestToCar(CarRequest carRequest) {
         return carMapper.toCar(carRequest);
     }
 

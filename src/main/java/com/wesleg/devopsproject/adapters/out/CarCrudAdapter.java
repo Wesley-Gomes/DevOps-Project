@@ -2,7 +2,7 @@ package com.wesleg.devopsproject.adapters.out;
 
 import com.wesleg.devopsproject.adapters.out.repository.entity.CarEntity;
 import com.wesleg.devopsproject.adapters.out.repository.mappers.CarEntityMapper;
-import com.wesleg.devopsproject.core.domain.Car;
+import com.wesleg.devopsproject.core.domain.model.Car;
 import com.wesleg.devopsproject.core.ports.output.CarCrudOutputPort;
 import com.wesleg.devopsproject.adapters.out.repository.CarRepository;
 import lombok.RequiredArgsConstructor;

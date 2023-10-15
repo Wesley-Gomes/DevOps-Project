@@ -27,7 +27,7 @@ services:
     image: "gvenzl/oracle-xe:18-faststart"
     restart: always
     environment:
-      ORACLE_PASSWORD: root
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD}
       APP_USER: ${DB_OWNER_USER}
       APP_USER_PASSWORD: ${DB_OWNER_PASS}
     ports:
