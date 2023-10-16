@@ -81,7 +81,7 @@ jobs:
           cd src/main/resources/oracle 
           docker-compose up -d
 
-      - name : Run code coverage
+      - name: Run code coverage
         run: mvn -B verify -Pcoverage
 
       - name: sonar coverage
