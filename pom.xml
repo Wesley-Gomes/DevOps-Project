@@ -25,7 +25,8 @@
         <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <sonar.coverage.jacoco.reportsPath>target/site/jacoco</sonar.coverage.jacoco.reportsPath>
-        <sonar.coverage.jacoco.itReportPath>target/site/jacoco-it/jacoco.xml</sonar.coverage.jacoco.itReportPath>
+        <sonar.tests>src/test/java</sonar.tests>
+        <sonar.test.inclusions>**/*UnitTest.java,**/*IntegrationTest.java</sonar.test.inclusions>
         <sonar.projectKey>Wesley-Gomes_DevOps-Project</sonar.projectKey>
         <sonar.organization>wesley-gomes</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
