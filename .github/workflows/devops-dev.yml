@@ -95,7 +95,7 @@ jobs:
           path: target/site/jacoco/
 
       - name: sonar coverage
-        run: mvn sonar:sonar -Pcoverage
+        run: mvn sonar:sonar -Pcoverage org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Wesley-Gomes_DevOps-Project
 
   build:
     needs: [ unit-test, integration-test, code-coverage ]
