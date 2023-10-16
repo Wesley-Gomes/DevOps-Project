@@ -10,14 +10,13 @@ name: prd-publish
 
 on:
   pull_request:
-    branches: [main]
-    types:
-      -
+    branches: [ "main" ]
+    types: [ "closed" ]
 
 jobs:
   docker-deploy:
     runs-on: ubuntu-latest
-
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3

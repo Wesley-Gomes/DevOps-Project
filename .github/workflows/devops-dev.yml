@@ -84,6 +84,9 @@ jobs:
       - name: Run code coverage
         run: mvn -B verify -Pcoverage
 
+      - name: sonar coverage
+      - run: mvn sonar:sonar -Pcoverage
+
       - name: Generate JaCoCo Badge
         id: jacoco
         uses: cicirello/jacoco-badge-generator@v2.11.0
