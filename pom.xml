@@ -26,6 +26,15 @@
         </code.coverage.exclusions>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.language>java</sonar.language>
+        <sonar.sources>.</sonar.sources>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.java.libraries>target/dependency/*.jar</sonar.java.libraries>
+        <sonar.junit.reportPaths>target/surefire-reports</sonar.junit.reportPaths>
+        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.coverage.jacoco.reportsPath>target/site/jacoco</sonar.coverage.jacoco.reportsPath>
+        <sonar.coverage.jacoco.itReportPath>target/site/jacoco-it/jacoco.xml</sonar.coverage.jacoco.itReportPath>
+        <sonar.projectKey>Wesley-Gomes_DevOps-Project</sonar.projectKey>
         <sonar.organization>wesley-gomes</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
