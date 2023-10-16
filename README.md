@@ -1,6 +1,6 @@
 # DevOps Project
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Wesley-Gomes/DevOps-Project/devops-dev.yml?logo=github)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Wesley-Gomes/DevOps-Project/devops-prd.yml?logo=github)
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Wesley-Gomes_DevOps-Project)
 
