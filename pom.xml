@@ -18,14 +18,6 @@
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
 
         <!-- Sonar -->
-        <code.coverage.inclusions>
-            src/main/java/**,src/main/resources/**
-        </code.coverage.inclusions>
-        <code.coverage.exclusions>
-            **com/wesleg/devopsproject/core/DevOpsProjectApplication.java**
-        </code.coverage.exclusions>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.language>java</sonar.language>
         <sonar.organization>wesley-gomes</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
@@ -162,11 +154,6 @@
     <profiles>
         <profile>
             <id>coverage</id>
-            <properties>
-                <sonar.sources>.</sonar.sources>
-                <sonar.inclusions>${code.coverage.inclusions}</sonar.inclusions>
-                <sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
