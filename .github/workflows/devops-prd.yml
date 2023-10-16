@@ -79,7 +79,8 @@ jobs:
           cd src/main/resources/oracle 
           docker-compose up -d
 
-      - run: mvn verify -Pcoverage
+      - name : JaCoCo Coverage
+        run: mvn verify -Pcoverage
 
       - name: sonar coverage
       - run: mvn sonar:sonar -Pcoverage
