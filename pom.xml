@@ -28,6 +28,7 @@
         <sonar.language>java</sonar.language>
         <sonar.organization>wesley-gomes</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectKey>Wesley-Gomes_DevOps-Project</sonar.projectKey>
     </properties>
     <dependencies>
         <dependency>
